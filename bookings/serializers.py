@@ -2,6 +2,7 @@ from typing_extensions import Required
 from unittest.util import _MAX_LENGTH
 from rest_framework import serializers
 from bookings.models import Member
+from django.contrib.auth.models import User
 
 # class MemberSerializer(serializers.Serializer):
 #     id = serializers.IntegerField(read_only=True)
@@ -25,6 +26,16 @@ from bookings.models import Member
 
 
 class MemberSerializer(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.username')
+    
     class Meta:
         model = Member
-        fields = ['title', 'first_name', 'surname', 'level', 'last_login']
+        fields = ['title', 'first_name', 'surname', 'level', 'last_login', 'owner']
+
+
+class UserSerializer(serializers.ModelSerializer):
+    bookings = serializers.PrimaryKeyRelatedField(many=True, queryset=Member.objects.all())
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'bookings']

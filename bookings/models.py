@@ -13,8 +13,20 @@ class Member(models.Model):
     class Meta:
         ordering = ['created']
 
+    owner = models.ForeignKey('auth.User', related_name='members', on_delete=models.CASCADE)
+    owner_textfield = models.TextField()
+    saved = False
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        saved = True
+
     def __str__(self) -> str:
         return self.first_name + " " + self.surname
+
+# class User(models.Model):
+#     username = models.CharField(max_length=200)
+    
 
 class Event(models.Model):
     created = models.DateTimeField(auto_now_add=True)
