@@ -4,6 +4,8 @@ from rest_framework import serializers
 from bookings.models import Member
 from django.contrib.auth.models import User
 
+from users.models import CustomUser
+
 # class MemberSerializer(serializers.Serializer):
 #     id = serializers.IntegerField(read_only=True)
 #     title = serializers.CharField(required=True, max_length=200)
@@ -37,5 +39,5 @@ class UserSerializer(serializers.ModelSerializer):
     bookings = serializers.PrimaryKeyRelatedField(many=True, queryset=Member.objects.all())
 
     class Meta:
-        model = User
-        fields = ['id', 'username', 'bookings']
+        model = CustomUser
+        fields = ['id', 'email', 'members']

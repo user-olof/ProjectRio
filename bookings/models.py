@@ -1,5 +1,8 @@
 from django.db import models
 import datetime
+from pygments.lexers import get_lexer_by_name
+from pygments.formatters.html import HtmlFormatter
+from pygments import highlight
 
 # Create your models here.
 class Member(models.Model):
@@ -13,13 +16,18 @@ class Member(models.Model):
     class Meta:
         ordering = ['created']
 
-    owner = models.ForeignKey('auth.User', related_name='members', on_delete=models.CASCADE)
+    owner = models.ForeignKey('users.CustomUser', related_name='members', on_delete=models.CASCADE)
     owner_textfield = models.TextField()
     saved = False
 
     def save(self, *args, **kwargs):
+        lexer = get_lexer_by_name(self.language)
+        linenos = 'table' if self.linenos else False
+        options = {'title': self.title} if self.title else {}
+        formatter = HtmlFormatter(style=self.style, linenos=linenos, full=True, **options)
+        self.highlighted = highlight(self.code, lexer, formatter)
         super().save(*args, **kwargs)
-        saved = True
+        
 
     def __str__(self) -> str:
         return self.first_name + " " + self.surname
