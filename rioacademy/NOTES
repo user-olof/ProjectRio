@@ -1,0 +1,10 @@
+-- superuser login -- 
+email: super@user.com
+pw: 123
+
+python3 manage.py createsuperuser --email super@user.com
+python3 manage.py createsuperuser --email su-john@user.com
+python3 manage.py createsuperuser --email su-ian@user.com
+
+-- Command for updating the Database --
+rm -r db.sqlite3 && sqlite3 db.sqlite3 && python3 manage.py migrate --run-syncdb
