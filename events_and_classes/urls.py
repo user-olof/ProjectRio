@@ -2,8 +2,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.api_root),
+    # path('', views.api_root),
     path('events_and_classes/', views.EventsAndClassesList.as_view(), name="events_and_classes-list"),
+    path('events_and_classes/<int:pk>/', views.EventsAndClassesDetail.as_view()),
+    path('events_and_classes/<int:pk>/name/', views.EventsAndClassesName.as_view())
     # ex: /bookings/
     # path("",views.MemberList.as_view(), name="member_list"),
     # ex: /bookings/1/

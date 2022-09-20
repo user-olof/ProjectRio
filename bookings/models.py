@@ -1,6 +1,6 @@
 from django.db import models
 
-from events_and_classes.models import EventsAndClasses, Member
+# from events_and_classes.models import EventsAndClasses
 
 
 # Create your models here.

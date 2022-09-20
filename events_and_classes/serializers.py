@@ -4,7 +4,7 @@ from rest_framework import serializers
 
 # from dataclasses import fields
 
-from .models import EventsAndClasses, Member
+from .models import EventsAndClasses
 
 
 
@@ -35,11 +35,5 @@ class EventsAndClassesSerializer(serializers.ModelSerializer):
         model = EventsAndClasses
         fields = ['name', 'time_length', 'next_event', 'frequency', 'address', 'max_participants']
 
-class MemberSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username')
-    
-    class Meta:
-        model = Member
-        fields = ['title', 'email', 'first_name', 'surname', 'level', 'last_login', 'owner']
 
 

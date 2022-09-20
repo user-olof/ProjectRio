@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "rest_framework",
     'users',
     'bookings',
+    'members'
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'rioacademy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['home/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
