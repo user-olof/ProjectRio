@@ -14,13 +14,6 @@ class Member(models.Model):
     class Meta:
         ordering = ['created']
 
-    owner = models.ForeignKey('users.CustomUser', related_name='members', on_delete=models.CASCADE)
-    owner_textfield = models.TextField()
-    saved = False
-
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        
-
+ 
     def __str__(self) -> str:
         return self.first_name + " " + self.surname
