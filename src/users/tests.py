@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 class UserManagersTests(TestCase):
     def test_create_user(self):
         User = get_user_model()
-        user = User.objects.create_user(email='normal@user,com', password='foo')
+        user = User.objects.create_user(email='normal@user.com', password='foo')
         self.assertEqual(user.email, 'normal@user.com')
         self.assertEqual(user.is_active)
         self.assertEqual(user.is_staff)
@@ -22,8 +22,8 @@ class UserManagersTests(TestCase):
 
     def test_create_superuser(self):
         User = get_user_model()
-        superuser = User.objects.create_superuser(email='super@user.com', password='foo')
-        self.assertEqual(superuser.email, 'super@user.com')
+        superuser = User.objects.create_superuser(email='test@user.com', password='foo')
+        self.assertEqual(superuser.email, 'test@user.com')
         self.assertEqual(superuser.is_active)
         self.assertEqual(superuser.is_staff)
         self.assertEqual(superuser.is_superuser)
@@ -32,6 +32,6 @@ class UserManagersTests(TestCase):
         except AttributeError:
             pass
         with self.assertRaises(ValueError):
-            User.objects.create_superuser(email='super@user.com', password='foo', is_superuser=False)
+            User.objects.create_superuser(email='test@user.com', password='foo', is_superuser=False)
 
 
