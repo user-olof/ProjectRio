@@ -25,9 +25,9 @@ class Booking(models.Model):
     # def save(self, *args, **kwargs):
     #     super().save(*args, **kwargs)
 
-    owner = models.ForeignKey('users.CustomUser', related_name='booking', on_delete=models.CASCADE)
-    owner_textfield = models.TextField()
-    saved = False
+    # owner = models.ForeignKey('users.CustomUser', related_name='booking', on_delete=models.CASCADE)
+    # owner_textfield = models.TextField()
+    # saved = False
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)

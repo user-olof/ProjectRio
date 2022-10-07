@@ -17,8 +17,8 @@ class BookingViewSet(viewsets.ModelViewSet):
     #This saves that the User is also the owner 
     #of the created member list. All member lists
     #will be owned by the admin
-    def perform_create(self, serializer):
-        serializer.save(owner = self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(owner = self.request.user)
 
     @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
     def book(self, request, *args, **kwargs):

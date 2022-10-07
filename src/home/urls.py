@@ -6,4 +6,5 @@ urlpatterns = [
     path("", include("events_and_classes.urls")),
     path("", include("members.urls")),
     path("", include("bookings.urls")), 
+    path("", include("accounts.urls")),
 ]

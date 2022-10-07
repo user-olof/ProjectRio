@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'bookings',
     'members',
     'home',
-    'api_root'
+    'api_root',
+    'accounts'
 ]
 
 MIDDLEWARE = [

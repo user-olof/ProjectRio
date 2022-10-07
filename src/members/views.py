@@ -9,3 +9,5 @@ class MemberViewSet(viewsets.ModelViewSet):
     queryset = Member.objects.all()
     serializer_class = MemberSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    
