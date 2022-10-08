@@ -7,8 +7,8 @@ class UserManagersTests(TestCase):
         User = get_user_model()
         user = User.objects.create_user(email='normal@user.com', password='foo')
         self.assertEqual(user.email, 'normal@user.com')
-        self.assertEqual(user.is_active)
-        self.assertEqual(user.is_staff)
+        self.assertEqual(user.is_active, True)
+        self.assertEqual(user.is_staff, True)
         try:
             self.assertIsNone(user.username)
         except AttributeError:
@@ -24,9 +24,9 @@ class UserManagersTests(TestCase):
         User = get_user_model()
         superuser = User.objects.create_superuser(email='test@user.com', password='foo')
         self.assertEqual(superuser.email, 'test@user.com')
-        self.assertEqual(superuser.is_active)
-        self.assertEqual(superuser.is_staff)
-        self.assertEqual(superuser.is_superuser)
+        self.assertEqual(superuser.is_active, True)
+        self.assertEqual(superuser.is_staff, True)
+        self.assertEqual(superuser.is_superuser, True)
         try:
             self.assertIsNone(superuser.username)
         except AttributeError:
