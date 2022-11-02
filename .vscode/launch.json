@@ -3,20 +3,81 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    
     "configurations": [
-        
+        // {
+        //     "name": "RUN",
+        //     "python": "${workspaceFolder}/src/venv/bin/python3.7",
+        //     "type": "python",
+        //     "request": "launch",
+        //     "stopOnEntry": false,
+        //     // "program": "${workspaceFolder}/src/manage.py",
+        //     "module": "pdb",
+        //     "args": [
+        //         "src/manage.py",
+        //         "runserver",
+        //         "--noreload"
+        //     ],
+        //     "django": true,
+        // },
         {
-            "name": "Python: Django",
+            "name": "RUN",
+            "python": "${workspaceFolder}/venv/bin/python3.7",
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "program": "${workspaceFolder}/manage.py",
+            "program": "${workspaceFolder}/scripts/manage.py",
             "args": [
-                "runserver"
+                "runserver",
+                "--noreload"
             ],
             "django": true,
+        },
+        {
+            "name": "TEST all",
+            "python": "${workspaceFolder}/venv/bin/python3.7",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "console": "integratedTerminal",
+            "args": [
+                "test",
+                "accounts",
+                "api_root",
+                "bookings",
+                "events_and_classes",
+                "home",
+                "members",
+                "users",
+            ],
+            "django": true,
+        },
+        {
+            "name": "TEST accounts",
+            "python": "${workspaceFolder}/venv/bin/python3.7",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "console": "integratedTerminal",
             "justMyCode": false,
+            "args": [
+                "test",
+                "accounts",
+            ],
+            "django": true,
+        },
+        {
+            "name": "TEST users",
+            "python": "${workspaceFolder}/venv/bin/python3.7",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/manage.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "test",
+                "users"
+            ],
+            "django": true,
         }
     ]
 }

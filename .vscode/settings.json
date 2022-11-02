@@ -1,0 +1,11 @@
+{
+    "python.defaultInterpreterPath":"${workspaceFolder}/venv/python3.7",
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./${workspaceFolder}/rioacademy",
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true,
+    "python.testing.autoTestDiscoverOnSaveEnabled": true
+}
