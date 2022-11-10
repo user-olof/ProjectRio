@@ -6,10 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rioacademy.settings.development')
-
-    # from dotenv import load_dotenv
-    # load_dotenv()
+    # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rioacademy.settings.testing')
 
     is_testing = 'test' in sys.argv
     if is_testing:  
@@ -39,4 +36,6 @@ def main():
 
 
 if __name__ == '__main__':
+    import django
+    django.setup()
     main()

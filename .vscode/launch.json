@@ -37,17 +37,13 @@
             "python": "${workspaceFolder}/venv/bin/python3.7",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/manage.py",
+            "program": "${workspaceFolder}/scripts/manage.py",
+            "purpose": ["debug-test"],
             "console": "integratedTerminal",
             "args": [
                 "test",
-                "accounts",
-                "api_root",
-                "bookings",
-                "events_and_classes",
-                "home",
-                "members",
-                "users",
+                "--debug-mode",
+                "tests"
             ],
             "django": true,
         },
@@ -56,12 +52,13 @@
             "python": "${workspaceFolder}/venv/bin/python3.7",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/manage.py",
+            "program": "${workspaceFolder}/scripts/manage.py",
+            
             "console": "integratedTerminal",
             "justMyCode": false,
             "args": [
                 "test",
-                "accounts",
+                "tests/accounts_test",
             ],
             "django": true,
         },
@@ -70,12 +67,13 @@
             "python": "${workspaceFolder}/venv/bin/python3.7",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/manage.py",
+            "program": "${workspaceFolder}/scripts/manage.py",
+            
             "console": "integratedTerminal",
             "justMyCode": false,
             "args": [
                 "test",
-                "users"
+                "tests/users_test"
             ],
             "django": true,
         }
