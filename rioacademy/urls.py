@@ -22,7 +22,7 @@ from rest_framework import routers
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("rioacademy.apps.api_root.urls")), 
-    path("home/", include("rioacademy.apps.home.urls")),
+    path("", include("apps.api_root.urls")), 
+    path("home/", include("apps.home.urls")),
     path('api-auth/', include('rest_framework.urls'))
 ]

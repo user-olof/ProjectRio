@@ -42,14 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "rioacademy.apps.events_and_classes",
+    "apps.events_and_classes",
     "rest_framework",
-    'rioacademy.apps.users',
-    'rioacademy.apps.bookings',
-    'rioacademy.apps.members',
-    'rioacademy.apps.home',
-    'rioacademy.apps.api_root',
-    'rioacademy.apps.accounts',
+    'apps.users',
+    'apps.bookings',
+    'apps.home',
+    'apps.api_root',
+    'apps.accounts',
 ]
 
 MIDDLEWARE = [
@@ -67,7 +66,7 @@ ROOT_URLCONF = 'rioacademy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['home/templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

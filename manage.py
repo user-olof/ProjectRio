@@ -5,9 +5,7 @@ import sys
 
 
 def main():
-    """Run administrative tasks."""
-    # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rioacademy.settings.testing')
-
+   
     is_testing = 'test' in sys.argv
     if is_testing:  
         from coverage import Coverage
@@ -16,6 +14,7 @@ def main():
         cov = Coverage()
         cov.erase()
         cov.start()
+        
 
     try:
         from django.core.management import execute_from_command_line
@@ -36,6 +35,12 @@ def main():
 
 
 if __name__ == '__main__':
+    is_testing = 'test' in sys.argv
+    if is_testing:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rioacademy.settings.testing')  
+    else:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rioacademy.settings.development')
+
     import django
     django.setup()
     main()
