@@ -13,17 +13,21 @@ class AccountsTest(TestCase):
     def setUp(self):
         accounts.make_objects()
 
+    def test_account_is_default_test_account(self):
+        account = Account.objects.first()
+        self.assertEqual(account.name, "default_test_account")
+
     def test_count_all_accounts_to_4(self):
         accounts = Account.objects.all()
-        self.assertEqual(len(accounts), 4)
+        assert len(accounts) == 4
        
     def test_str_returning_default_test_account(self):
         account = Account.objects.first()
-        self.assertTrue(account.__str__() == 'default_test_account')
+        assert account.__str__() == 'default_test_account'
 
     def test_user_email(self):
         account = Account.objects.first()
-        self.assertEqual(account.user.email, "test@user.com")
+        assert account.user.email == "john.doe@user.com"
 
     def test_foreign_key_user(self):
         # get the John Doe user
@@ -33,7 +37,7 @@ class AccountsTest(TestCase):
         instance.save()
         # get the account object 
         account = Account.objects.get(name='JD')
-        self.assertTrue(account.user.email, "john.doe@user.com")
+        assert account.user.email == "john.doe@user.com"
         # account_user = CustomUser(email='test@test.com')
         
 

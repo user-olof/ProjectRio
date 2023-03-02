@@ -11,7 +11,8 @@ booking_list = views.BookingViewSet.as_view({
 booking_detail = views.BookingViewSet.as_view({
     'get': 'retrieve',
     'put': 'update',
-    'delete': 'destroy'
+    'delete': 'destroy',
+    'post': 'create'
 
 })
 

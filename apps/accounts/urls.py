@@ -3,6 +3,7 @@ from rest_framework.routers import DefaultRouter
 
 account_detail = views.AccountViewSet.as_view({
     'get' : 'retrieve',
+    'post': 'create'
 
 })
 

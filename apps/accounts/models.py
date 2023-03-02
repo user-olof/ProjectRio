@@ -1,4 +1,5 @@
 from django.db import models
+# from apps.bookings.models import Booking
 
 from apps.users.models import CustomUser, get_default_user_id
 
@@ -21,6 +22,7 @@ class Account(models.Model):
     # "an account has an owner"
     member = models.BooleanField(default=False)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=get_default_user_id, unique=False)
+ 
     # user_id = models.IntegerField(null=False)
 
     def get_label(self, field_name):

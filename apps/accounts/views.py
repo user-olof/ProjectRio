@@ -30,11 +30,11 @@ class AccountViewSet(viewsets.ModelViewSet):
         return Response(data)   
 
     def create(self, request, *args, **kwargs):
-        query_set = self.get_queryset()
+        # query_set = self.get_queryset()
         request_data = request.data
         account, created = Account.objects.get_or_create(
             name=request_data['name'],
-            owner = request_data['owner']
+            member = request_data['member']
         )
         data = AccountSerializer(account).data
         return Response(data={'error': False, 'message': "Account object successfully created", 'results': data})
