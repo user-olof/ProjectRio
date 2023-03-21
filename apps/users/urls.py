@@ -6,9 +6,7 @@ user_list = views.UserViewSet.as_view({
     'get': 'list'
 })
 
-user_detail = views.UserViewSet.as_view({
-    'get': 'retrieve'
-})
+user_detail = views.UserViewSet.as_view({'get': 'retrieve'})
 
 # Create router and register our viewsets with it.
 router = DefaultRouter()

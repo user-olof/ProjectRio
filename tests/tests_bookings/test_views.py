@@ -1,9 +1,12 @@
 from django.test import TestCase, RequestFactory, Client
+from django.contrib.auth import get_user_model
 from apps.bookings.views import BookingViewSet
 from tests.fixtures import bookings
 from apps.bookings.models import Booking
 from apps.accounts.models import Account
 from apps.events_and_classes.models import EventsAndClasses
+from datetime import datetime 
+import pytz
 
 class BookingViewSetTest(TestCase):
 
@@ -51,10 +54,10 @@ class BookingViewSetTest(TestCase):
     def test_create_new_booking(self):
         account = Account.objects.first()
         event = EventsAndClasses.objects.first()
-        new_booking = Booking.objects.get_or_create(
-            event = event,
-            account = account
-        )
+        new_booking, created = Booking.objects.get_or_create(event=event, account = account)
+        self.assertEqual(new_booking.event.name, "Test lesson" )
+    
+    
     # def test_post_one_booking_by_default_user(self):
     #     user = 
     #     data = {'event':'xxx'}

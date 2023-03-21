@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "corsheaders",
     "apps.events_and_classes",
     "rest_framework",
     'apps.users',
@@ -54,12 +55,19 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Cross Origin Resource Sharing (CORS)
+# CORS_ALLOWED_ORIGINS = ["http://localhost:8001"]
+# CORS_ALLOW_METHODS = [
+#     "GET"
+# ]
 
 ROOT_URLCONF = 'rioacademy.urls'
 

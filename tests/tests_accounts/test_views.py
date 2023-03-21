@@ -11,9 +11,10 @@ from apps.accounts.views import AccountViewSet
 from rest_framework.test import force_authenticate
 from tests.factories import accounts
 
-from django.http import HttpRequest, HttpResponse
+# from django.http import HttpRequest, HttpResponse
 from tests.fixtures import accounts
 # import pytest
+
 
 class AccountViewSetTest(TestCase):
 
@@ -27,14 +28,6 @@ class AccountViewSetTest(TestCase):
         # self.user = user_model.objects.create_superuser(email="test@user.com", password=r"***")
         self.factory = RequestFactory()
     
-    def test_account_get_request(self):
-        # import requests
-        request = HttpRequest
-        request.method = 'GET'
-        # request.path = '/home/accounts/details'
-        response = HttpResponse("")
-        # response.data = 
-        self.assertEqual(response.status_code, HTTPStatus.OK)
 
     def test_account_authentication(self):
         try:

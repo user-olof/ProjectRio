@@ -2,7 +2,7 @@ from apps.accounts.models import Account
 from apps.accounts.serializers import AccountSerializer
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
-from apps.users.models import CustomUser
+# from apps.users.models import CustomUser
 
 
 class AccountViewSet(viewsets.ModelViewSet):
